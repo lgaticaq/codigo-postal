@@ -1,14 +1,13 @@
 'use strict';
 
-import path from 'path';
+const path = require('path');
 
-import {expect} from 'chai';
-import nock from 'nock';
+const expect = require('chai').expect;
+const nock = require('nock');
 
-import lib from '../lib';
+const lib = require('../src');
 
 describe('codigo-postal', () => {
-
 
   describe('valid', () => {
 
@@ -31,28 +30,15 @@ describe('codigo-postal', () => {
         .replyWithFile(200, path.join(__dirname, 'valid.html'));
     });
 
-    it('should return a valid result (callback)', (done) => {
-      lib(data, (err, result) => {
-        expect(err).to.be.null;
+    it('should return a valid result', done => {
+      lib(data).then(result => {
         expect(result).to.be.a('object');
         expect(result.zip).to.be.a('number');
         expect(result.address).to.be.a('string');
         expect(result.number).to.be.a('string');
         expect(result.commune).to.be.a('string');
         done();
-      });
-    });
-
-
-    it('should return a valid result (promise)', (done) => {
-      lib(data).then((result) => {
-        expect(result).to.be.a('object');
-        expect(result.zip).to.be.a('number');
-        expect(result.address).to.be.a('string');
-        expect(result.number).to.be.a('string');
-        expect(result.commune).to.be.a('string');
-        done();
-      }).fail((err) => {
+      }).catch(err => {
         expect(err).to.be.null;
         done();
       });
@@ -80,19 +66,11 @@ describe('codigo-postal', () => {
         .replyWithFile(200, path.join(__dirname, 'invalid.html'));
     });
 
-    it('should return a empty result (callback)', (done) => {
-      lib(data, (err, result) => {
-        expect(err).to.eql(new Error('Not found'));
+    it('should return a empty result', done => {
+      lib(data).then(result => {
         expect(result).to.be.undefined;
         done();
-      });
-    });
-
-    it('should return a empty result (promise)', (done) => {
-      lib(data).then((result) => {
-        expect(result).to.be.undefined;
-        done();
-      }).fail((err) => {
+      }).catch(err => {
         expect(err).to.eql(new Error('Not found'));
         done();
       });
