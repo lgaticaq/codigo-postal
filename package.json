@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/lgaticaq/codigo-postal#readme",
   "dependencies": {
-    "cheerio": "^0.20.0",
+    "cheerio": "^0.22.0",
     "request-promise": "^4.0.0"
   },
   "devDependencies": {
