@@ -76,4 +76,62 @@ describe('codigo-postal', () => {
       });
     });
   });
+
+  describe('server error', () => {
+
+    const data = {
+      address: 'avenida siempreviva',
+      number: 666,
+      commune: 'springfield'
+    };
+
+    beforeEach(() => {
+      const query = {
+        calle: data.address,
+        numero: data.number,
+        comuna: data.commune
+      };
+      nock.disableNetConnect();
+      nock('http://www.correos.cl')
+        .get('/SitePages/codigo_postal/codigo_postal.aspx')
+        .query(query)
+        .replyWithError('Server error');
+    });
+
+    it('should return an error', done => {
+      lib(data).catch(err => {
+        expect(err).to.be.an('error');
+        done();
+      });
+    });
+  });
+
+  describe('bad status code', () => {
+
+    const data = {
+      address: 'avenida siempreviva',
+      number: 666,
+      commune: 'springfield'
+    };
+
+    beforeEach(() => {
+      const query = {
+        calle: data.address,
+        numero: data.number,
+        comuna: data.commune
+      };
+      nock.disableNetConnect();
+      nock('http://www.correos.cl')
+        .get('/SitePages/codigo_postal/codigo_postal.aspx')
+        .query(query)
+        .reply(301);
+    });
+
+    it('should return an error', done => {
+      lib(data).catch(err => {
+        expect(err).to.be.an('error');
+        done();
+      });
+    });
+  });
 });
