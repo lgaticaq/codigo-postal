@@ -26,3 +26,15 @@
 
 * **package:** Downgrade cheerio to v0.20.0 ([a2d20cce](https://github.com/lgaticaq/codigo-postal/commit/a2d20cce94c17fb369f70280ce77861977c37fe7))
 
+## 2.0.0 (2016-05-15)
+
+* Refactor and add coverage ([d27aebd](https://github.com/lgaticaq/codigo-postal/commit/d27aebd))
+* chore(package): update dependencies ([f86402d](https://github.com/lgaticaq/codigo-postal/commit/f86402d))
+
+#### 1.0.1 (2016-01-08)
+
+* Update dependencies ([1d7103d](https://github.com/lgaticaq/codigo-postal/commit/1d7103d))
+
+## 1.0.0 (2016-01-04)
+
+* first commit ([6043ec6](https://github.com/lgaticaq/codigo-postal/commit/6043ec6))
