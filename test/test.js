@@ -1,137 +1,131 @@
-'use strict';
+'use strict'
 
-const path = require('path');
+const path = require('path')
 
-const expect = require('chai').expect;
-const nock = require('nock');
+const { expect } = require('chai')
+const nock = require('nock')
 
-const lib = require('../src');
+const lib = require('../src')
 
 describe('codigo-postal', () => {
-
   describe('valid', () => {
-
     const data = {
       address: 'avenida siempreviva',
       number: 742,
       commune: 'springfield'
-    };
+    }
 
-    beforeEach(() => {
+    before(() => {
       const query = {
         calle: data.address,
         numero: data.number,
         comuna: data.commune
-      };
-      nock.disableNetConnect();
+      }
+      nock.disableNetConnect()
       nock('http://www.correos.cl')
         .get('/SitePages/codigo_postal/codigo_postal.aspx')
         .query(query)
-        .replyWithFile(200, path.join(__dirname, 'valid.html'));
-    });
+        .replyWithFile(200, path.join(__dirname, 'valid.html'))
+    })
 
     it('should return a valid result', done => {
-      lib(data).then(result => {
-        expect(result).to.be.a('object');
-        expect(result.zip).to.be.a('number');
-        expect(result.address).to.be.a('string');
-        expect(result.number).to.be.a('string');
-        expect(result.commune).to.be.a('string');
-        done();
-      }).catch(err => {
-        expect(err).to.be.null;
-        done();
-      });
-    });
-  });
+      lib(data)
+        .then(result => {
+          expect(result).to.be.a('object')
+          expect(result.zip).to.be.a('number')
+          expect(result.address).to.be.a('string')
+          expect(result.number).to.be.a('string')
+          expect(result.commune).to.be.a('string')
+          done()
+        })
+        .catch(err => {
+          expect(err).to.eql(null)
+          done()
+        })
+    })
+  })
 
   describe('invalid', () => {
-
     const data = {
       address: 'avenida siemprebiba',
       number: 666,
       commune: 'springfield'
-    };
+    }
 
-    beforeEach(() => {
+    before(() => {
       const query = {
         calle: data.address,
         numero: data.number,
         comuna: data.commune
-      };
-      nock.disableNetConnect();
+      }
+      nock.disableNetConnect()
       nock('http://www.correos.cl')
         .get('/SitePages/codigo_postal/codigo_postal.aspx')
         .query(query)
-        .replyWithFile(200, path.join(__dirname, 'invalid.html'));
-    });
+        .replyWithFile(200, path.join(__dirname, 'invalid.html'))
+    })
 
     it('should return a empty result', done => {
-      lib(data).then(result => {
-        expect(result).to.be.undefined;
-        done();
-      }).catch(err => {
-        expect(err).to.eql(new Error('Not found'));
-        done();
-      });
-    });
-  });
+      lib(data).catch(err => {
+        expect(err).to.be.an('error')
+        done()
+      })
+    })
+  })
 
   describe('server error', () => {
-
     const data = {
       address: 'avenida siempreviva',
       number: 666,
       commune: 'springfield'
-    };
+    }
 
     beforeEach(() => {
       const query = {
         calle: data.address,
         numero: data.number,
         comuna: data.commune
-      };
-      nock.disableNetConnect();
+      }
+      nock.disableNetConnect()
       nock('http://www.correos.cl')
         .get('/SitePages/codigo_postal/codigo_postal.aspx')
         .query(query)
-        .replyWithError('Server error');
-    });
+        .replyWithError('Server error')
+    })
 
     it('should return an error', done => {
       lib(data).catch(err => {
-        expect(err).to.be.an('error');
-        done();
-      });
-    });
-  });
+        expect(err).to.be.an('error')
+        done()
+      })
+    })
+  })
 
   describe('bad status code', () => {
-
     const data = {
       address: 'avenida siempreviva',
       number: 666,
       commune: 'springfield'
-    };
+    }
 
     beforeEach(() => {
       const query = {
         calle: data.address,
         numero: data.number,
         comuna: data.commune
-      };
-      nock.disableNetConnect();
+      }
+      nock.disableNetConnect()
       nock('http://www.correos.cl')
         .get('/SitePages/codigo_postal/codigo_postal.aspx')
         .query(query)
-        .reply(301);
-    });
+        .reply(301)
+    })
 
     it('should return an error', done => {
       lib(data).catch(err => {
-        expect(err).to.be.an('error');
-        done();
-      });
-    });
-  });
-});
+        expect(err).to.be.an('error')
+        done()
+      })
+    })
+  })
+})
