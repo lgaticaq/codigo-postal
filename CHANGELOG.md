@@ -1,3 +1,30 @@
+#### 2.0.2 (2017-6-19)
+
+##### Chores
+
+* **package:**
+  * update lint-staged to v4.0.0 ([80d972d9](https://github.com/lgaticaq/codigo-postal/commit/80d972d947eee89a89d7eb924eaca04f50806be2))
+  * update eslint to version 4.0.0 ([9fe3d5a5](https://github.com/lgaticaq/codigo-postal/commit/9fe3d5a5c59e6e79112d786c5a147282939eb84d))
+  * update codeclimate-test-reporter to version 0.5.0 ([2d25c881](https://github.com/lgaticaq/codigo-postal/commit/2d25c88136a988a2d26b2ac2b499e04554948ee5))
+  * update chai to version 4.0.0 ([2dabfb90](https://github.com/lgaticaq/codigo-postal/commit/2dabfb90d34aff68e71027501e4658ad218eab68))
+  * Upgrade codeclimate-test-reporter, coveralls, eslint and nock ([216e516a](https://github.com/lgaticaq/codigo-postal/commit/216e516a492a7f168f1920ae5de492ce71082507))
+  * update nock to version 9.0.9 ([0f2f25a7](https://github.com/lgaticaq/codigo-postal/commit/0f2f25a739b5dab11bd8735d4087c63539c2509e))
+  * Update eslint to v3.14.1 ([ed892a8c](https://github.com/lgaticaq/codigo-postal/commit/ed892a8c206614ef2ede620ac22481b420b241cb))
+* **http:** fix http request ([7ecfa15a](https://github.com/lgaticaq/codigo-postal/commit/7ecfa15a00f915ce47cb23db2e04829f51e7123e))
+* **travis:** Add cache yarn ([59f88439](https://github.com/lgaticaq/codigo-postal/commit/59f884399b63de82f9039d0937bafba46fee318c))
+
+##### Documentation Changes
+
+* **LICENSE:** Update year ([809e47d3](https://github.com/lgaticaq/codigo-postal/commit/809e47d3d85dd703b1e3e078d304f4cbd09b35ec))
+* **CHANGELOG:** Add previous releases ([097eada4](https://github.com/lgaticaq/codigo-postal/commit/097eada43ef62281ce47ef9a00ff7e6a327ae2c7))
+
+##### Bug Fixes
+
+* **package:**
+  * fix lint-staged config ([2f2c2574](https://github.com/lgaticaq/codigo-postal/commit/2f2c25748def27b133cbe46496c394203f307678))
+  * update cheerio to version 1.0.0-rc.1 ([cef4e29c](https://github.com/lgaticaq/codigo-postal/commit/cef4e29cfdbbc0a740651ea5098a5818d063a2d1))
+* **linter:** Fix Arrow function should not return assignment ([24aa37f0](https://github.com/lgaticaq/codigo-postal/commit/24aa37f0bf89ec60f05161331dce809382746595))
+
 #### 2.0.1 (2016-12-18)
 
 ##### Chores
