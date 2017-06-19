@@ -67,16 +67,16 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "src/**/*.js": [
-        "prettier-standard",
-        "git add"
-      ],
-      "test/**/*.js": [
-        "prettier-standard",
-        "git add"
-      ]
-    }
+    "src/**/*.js": [
+      "eslint --fix",
+      "prettier-standard",
+      "git add"
+    ],
+    "test/**/*.js": [
+      "eslint --fix",
+      "prettier-standard",
+      "git add"
+    ]
   },
   "tonicExampleFilename": "example.js"
 }
