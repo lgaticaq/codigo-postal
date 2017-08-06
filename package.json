@@ -33,22 +33,22 @@
   },
   "homepage": "https://github.com/lgaticaq/codigo-postal#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.1"
+    "cheerio": "^1.0.0-rc.2"
   },
   "devDependencies": {
-    "chai": "^4.0.2",
+    "chai": "^4.1.1",
     "eslint": "^4.0.0",
     "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "generate-changelog": "^1.2.1",
-    "husky": "^0.13.4",
+    "generate-changelog": "^1.3.0",
+    "husky": "^0.14.3",
     "istanbul": "^0.4.5",
-    "lint-staged": "^4.0.0",
-    "mocha": "^3.4.2",
-    "nock": "^9.0.13",
+    "lint-staged": "^4.0.3",
+    "mocha": "^3.5.0",
+    "nock": "^9.0.14",
     "prettier-standard": "^6.0.0"
   },
   "eslintConfig": {
