@@ -1,3 +1,16 @@
+#### 2.0.3 (2017-08-06)
+
+##### Chores
+
+* **package:**
+  * update dependencies ([26ff9f53](https://github.com/lgaticaq/codigo-postal/commit/26ff9f53d5bf155c57ef81349b3897b884dce778))
+  * update prettier-standard to version 6.0.0 ([65a090de](https://github.com/lgaticaq/codigo-postal/commit/65a090de1137595c864f432d01a5b44cb9c7bb40))
+  * add husky ([95d877ac](https://github.com/lgaticaq/codigo-postal/commit/95d877ace8a791088ad72b30dbd2fa76ba11dcf4))
+
+##### Documentation Changes
+
+* **readme:** remove semi in examples ([84a1c9de](https://github.com/lgaticaq/codigo-postal/commit/84a1c9de805cac77d63cd3950a0b4aa723621a35))
+
 #### 2.0.2 (2017-6-19)
 
 ##### Chores
