@@ -20,15 +20,15 @@ npm i -S codigo-postal
 
 [Try on Tonic](https://tonicdev.com/npm/codigo-postal)
 ```js
-const codigoPostal = require('codigo-postal');
+const codigoPostal = require('codigo-postal')
 
 const data = {
   address: 'avenida siempreviva',
   number: 742,
   commune: 'springfield'
-};
+}
 
-codigoPostal(data).then(console.log);
+codigoPostal(data).then(console.log)
 ```
 
 Result:
