@@ -1,3 +1,9 @@
+#### 2.0.4 (2017-08-07)
+
+##### Chores
+
+* **package:** update dependencies ([32c97e25](https://github.com/lgaticaq/codigo-postal/commit/32c97e25102dbcca704d29579b64c31ad19e6ee2))
+
 #### 2.0.3 (2017-08-06)
 
 ##### Chores
