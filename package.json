@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.1",
-    "eslint": "^4.0.0",
+    "eslint": "^4.4.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
@@ -53,13 +53,8 @@
   },
   "eslintConfig": {
     "extends": "standard",
-    "parserOptions": {
-      "ecmaVersion": 2017
-    },
     "env": {
-      "node": true,
-      "mocha": true,
-      "es6": true
+      "mocha": true
     },
     "rules": {
       "no-console": [
@@ -67,6 +62,10 @@
       ]
     }
   },
+  "eslintIgnore": [
+    "coverage",
+    "example.js"
+  ],
   "lint-staged": {
     "src/**/*.js": [
       "eslint --fix",

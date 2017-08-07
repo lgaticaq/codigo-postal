@@ -3,7 +3,6 @@ node_modules
 coverage
 test
 .editorconfig
-.eslintignore
 .gitignore
 .nvmrc
 .travis.yml
