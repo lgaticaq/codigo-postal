@@ -1,3 +1,10 @@
+## [2.0.5](https://github.com/lgaticaq/codigo-postal/compare/v2.0.4...v2.0.5) (2018-09-18)
+
+
+### Bug Fixes
+
+* **source:** change source of data ([cb4f80d](https://github.com/lgaticaq/codigo-postal/commit/cb4f80d))
+
 #### 2.0.4 (2017-08-07)
 
 ##### Chores
