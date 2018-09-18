@@ -1,7 +1,7 @@
 'use strict'
 
 const cheerio = require('cheerio')
-const http = require('http')
+const https = require('https')
 const querystring = require('querystring')
 
 const getZip = data => {
@@ -12,12 +12,12 @@ const getZip = data => {
       comuna: data.commune
     })
     const options = {
-      hostname: 'www.correos.cl',
-      port: 80,
-      path: `/SitePages/codigo_postal/codigo_postal.aspx?${qs}`,
+      hostname: 'codigopostal.correos.cl',
+      port: 443,
+      path: `/?${qs}`,
       method: 'GET'
     }
-    const req = http.request(options, res => {
+    const req = https.request(options, res => {
       if (res.statusCode !== 200) {
         reject(new Error(`Request Failed. Status Code: ${res.statusCode}`))
       } else {
@@ -29,10 +29,18 @@ const getZip = data => {
         res.on('end', () => {
           try {
             const $ = cheerio.load(rawData, { decodeEntities: false })
-            const zip = $('span[id$="CodigoPostal"]').text()
-            const address = $('span[id$="Calle"]').text()
-            const number = $('span[id$="Numero"]').text()
-            const commune = $('span[id$="Comuna"]').text()
+            const zip = $('.tu_codigo')
+              .text()
+              .trim()
+            const address = $('.dato-info:nth-child(1)')
+              .text()
+              .trim()
+            const number = $('.dato-info:nth-child(3)')
+              .text()
+              .trim()
+            const commune = $('.dato-info:nth-child(5)')
+              .text()
+              .trim()
             if (!zip) throw new Error('Not found')
             resolve({
               zip: parseInt(zip, 10),
