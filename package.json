@@ -91,6 +91,13 @@
     }
   },
   "tonicExampleFilename": "example.js",
+  "renovate": {
+    "automerge": "minor",
+    "extends": [
+      "config:base",
+      ":pinOnlyDevDependencies"
+    ]
+  },
   "release": {
     "extends": "npm-github-config"
   }
