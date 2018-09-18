@@ -22,8 +22,8 @@ describe('codigo-postal', () => {
         comuna: data.commune
       }
       nock.disableNetConnect()
-      nock('http://www.correos.cl')
-        .get('/SitePages/codigo_postal/codigo_postal.aspx')
+      nock('https://codigopostal.correos.cl')
+        .get('/')
         .query(query)
         .replyWithFile(200, path.join(__dirname, 'valid.html'))
     })
@@ -59,8 +59,8 @@ describe('codigo-postal', () => {
         comuna: data.commune
       }
       nock.disableNetConnect()
-      nock('http://www.correos.cl')
-        .get('/SitePages/codigo_postal/codigo_postal.aspx')
+      nock('https://codigopostal.correos.cl')
+        .get('/')
         .query(query)
         .replyWithFile(200, path.join(__dirname, 'invalid.html'))
     })
@@ -87,8 +87,8 @@ describe('codigo-postal', () => {
         comuna: data.commune
       }
       nock.disableNetConnect()
-      nock('http://www.correos.cl')
-        .get('/SitePages/codigo_postal/codigo_postal.aspx')
+      nock('https://codigopostal.correos.cl')
+        .get('/')
         .query(query)
         .replyWithError('Server error')
     })
@@ -115,8 +115,8 @@ describe('codigo-postal', () => {
         comuna: data.commune
       }
       nock.disableNetConnect()
-      nock('http://www.correos.cl')
-        .get('/SitePages/codigo_postal/codigo_postal.aspx')
+      nock('https://codigopostal.correos.cl')
+        .get('/')
         .query(query)
         .reply(301)
     })
