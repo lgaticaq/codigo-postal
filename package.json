@@ -8,7 +8,9 @@
     "format": "prettier-standard 'src/**/*.js' 'test/**/*.js'",
     "commit": "commit",
     "pretest": "npm run lint -s && npm run format -s",
-    "test": "istanbul cover _mocha"
+    "test": "istanbul cover _mocha",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "engines": {
     "node": ">=8"
@@ -48,7 +50,10 @@
     "lint-staged": "7.2.2",
     "mocha": "5.2.0",
     "nock": "10.0.0",
-    "prettier-standard": "8.0.1"
+    "npm-github-config": "1.0.0",
+    "prettier-standard": "8.0.1",
+    "semantic-release": "15.9.15",
+    "travis-deploy-once": "5.0.7"
   },
   "eslintConfig": {
     "extends": "standard",
@@ -85,5 +90,8 @@
       ]
     }
   },
-  "tonicExampleFilename": "example.js"
+  "tonicExampleFilename": "example.js",
+  "release": {
+    "extends": "npm-github-config"
+  }
 }

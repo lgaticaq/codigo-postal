@@ -1,4 +1,7 @@
 language: node_js
+cache:
+  directories:
+    - ~/.npm
 node_js:
   - "10"
   - "8"
@@ -8,3 +11,7 @@ after_success:
   - npm i -g coveralls codeclimate-test-reporter
   - coveralls < coverage/lcov.info
   - codeclimate-test-reporter < coverage/lcov.info
+  - npm run travis-deploy-once "npm run semantic-release"
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
