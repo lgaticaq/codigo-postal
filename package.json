@@ -52,7 +52,7 @@
     "nock": "10.0.2",
     "npm-github-config": "1.0.0",
     "prettier-standard": "8.0.1",
-    "semantic-release": "15.12.1",
+    "semantic-release": "15.12.2",
     "travis-deploy-once": "5.0.9"
   },
   "eslintConfig": {
