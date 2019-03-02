@@ -39,7 +39,7 @@
     "@commitlint/config-conventional": "7.5.0",
     "@commitlint/prompt-cli": "7.5.0",
     "chai": "4.2.0",
-    "eslint": "5.14.1",
+    "eslint": "5.15.0",
     "eslint-config-standard": "12.0.0",
     "eslint-plugin-import": "2.16.0",
     "eslint-plugin-node": "8.0.1",
