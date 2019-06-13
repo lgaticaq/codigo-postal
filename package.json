@@ -6,10 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "format": "prettier-standard 'src/**/*.js' 'test/**/*.js'",
-    "pretest": "npm run lint -s && npm run format -s",
-    "test": "istanbul cover _mocha",
-    "semantic-release": "semantic-release",
-    "travis-deploy-once": "travis-deploy-once"
+    "test": "nyc mocha test",
+    "semantic-release": "semantic-release"
   },
   "engines": {
     "node": ">=8"
@@ -36,6 +34,12 @@
   "devDependencies": {
     "@commitlint/cli": "8.0.0",
     "@commitlint/config-conventional": "8.0.0",
+    "@semantic-release/changelog": "3.0.4",
+    "@semantic-release/commit-analyzer": "6.2.0",
+    "@semantic-release/git": "7.0.12",
+    "@semantic-release/github": "5.4.0",
+    "@semantic-release/npm": "5.1.9",
+    "@semantic-release/release-notes-generator": "7.2.0",
     "chai": "4.2.0",
     "eslint": "5.16.0",
     "eslint-config-standard": "12.0.0",
@@ -44,14 +48,13 @@
     "eslint-plugin-promise": "4.1.1",
     "eslint-plugin-standard": "4.0.0",
     "husky": "2.4.1",
-    "istanbul": "0.4.5",
     "lint-staged": "8.2.1",
     "mocha": "6.1.4",
     "nock": "10.0.6",
-    "npm-github-config": "2.0.0",
+    "nyc": "14.1.1",
+    "nyc-config-common": "1.0.1",
     "prettier-standard": "9.1.1",
-    "semantic-release": "15.13.16",
-    "travis-deploy-once": "5.0.11"
+    "semantic-release": "15.13.16"
   },
   "eslintConfig": {
     "extends": "standard",
@@ -97,11 +100,21 @@
     ]
   },
   "release": {
-    "extends": "npm-github-config"
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "nyc": {
+    "extends": "nyc-config-common"
   }
 }
