@@ -1,3 +1,10 @@
+## [2.0.6](https://github.com/lgaticaq/codigo-postal/compare/v2.0.5...v2.0.6) (2019-07-10)
+
+
+### Bug Fixes
+
+* .snyk, package.json & package-lock.json to reduce vulnerabilities ([4af38b8](https://github.com/lgaticaq/codigo-postal/commit/4af38b8))
+
 ## [2.0.5](https://github.com/lgaticaq/codigo-postal/compare/v2.0.4...v2.0.5) (2018-09-18)
 
 
