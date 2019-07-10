@@ -7,7 +7,9 @@
     "lint": "eslint .",
     "format": "prettier-standard 'src/**/*.js' 'test/**/*.js'",
     "test": "nyc mocha test",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "engines": {
     "node": ">=8"
@@ -29,7 +31,8 @@
   },
   "homepage": "https://github.com/lgaticaq/codigo-postal#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2"
+    "cheerio": "^1.0.0-rc.2",
+    "snyk": "^1.192.4"
   },
   "devDependencies": {
     "@commitlint/cli": "8.0.0",
@@ -116,5 +119,6 @@
   },
   "nyc": {
     "extends": "nyc-config-common"
-  }
+  },
+  "snyk": true
 }
