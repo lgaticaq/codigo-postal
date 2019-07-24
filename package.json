@@ -32,7 +32,7 @@
   "homepage": "https://github.com/lgaticaq/codigo-postal#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "snyk": "^1.192.4"
+    "snyk": "^2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "8.1.0",
