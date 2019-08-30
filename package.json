@@ -44,7 +44,7 @@
     "@semantic-release/npm": "5.1.15",
     "@semantic-release/release-notes-generator": "7.3.0",
     "chai": "4.2.0",
-    "eslint": "6.2.2",
+    "eslint": "6.3.0",
     "eslint-config-standard": "13.0.1",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-node": "9.2.0",
