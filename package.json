@@ -56,7 +56,7 @@
     "nock": "10.0.6",
     "nyc": "14.1.1",
     "nyc-config-common": "1.0.1",
-    "prettier-standard": "9.1.1",
+    "prettier-standard": "14.1.1",
     "semantic-release": "15.13.24"
   },
   "eslintConfig": {
