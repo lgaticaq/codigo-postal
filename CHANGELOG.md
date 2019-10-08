@@ -1,3 +1,10 @@
+## [2.0.7](https://github.com/lgaticaq/codigo-postal/compare/v2.0.6...v2.0.7) (2019-10-08)
+
+
+### Bug Fixes
+
+* **deps:** fix vulnerabilities ([f4d91ea](https://github.com/lgaticaq/codigo-postal/commit/f4d91ea))
+
 ## [2.0.6](https://github.com/lgaticaq/codigo-postal/compare/v2.0.5...v2.0.6) (2019-07-10)
 
 
