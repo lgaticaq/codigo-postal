@@ -7,9 +7,7 @@
     "lint": "eslint .",
     "format": "prettier-standard 'src/**/*.js' 'test/**/*.js'",
     "test": "nyc mocha test",
-    "semantic-release": "semantic-release",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "semantic-release": "semantic-release"
   },
   "engines": {
     "node": ">=8"
@@ -31,8 +29,7 @@
   },
   "homepage": "https://github.com/lgaticaq/codigo-postal#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "snyk": "^1.192.4"
+    "cheerio": "^1.0.0-rc.2"
   },
   "devDependencies": {
     "@commitlint/cli": "8.2.0",
@@ -81,18 +78,11 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "src/**/*.js": [
-        "eslint --fix",
-        "prettier-standard",
-        "git add"
-      ],
-      "test/**/*.js": [
-        "eslint --fix",
-        "prettier-standard",
-        "git add"
-      ]
-    }
+    "{src,test}/**/*.js": [
+      "eslint --fix",
+      "prettier-standard",
+      "git add"
+    ]
   },
   "tonicExampleFilename": "example.js",
   "renovate": {
@@ -119,6 +109,5 @@
   },
   "nyc": {
     "extends": "nyc-config-common"
-  },
-  "snyk": true
+  }
 }
