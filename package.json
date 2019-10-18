@@ -37,7 +37,7 @@
     "@semantic-release/changelog": "3.0.4",
     "@semantic-release/commit-analyzer": "6.3.0",
     "@semantic-release/git": "7.0.16",
-    "@semantic-release/github": "5.5.3",
+    "@semantic-release/github": "5.5.4",
     "@semantic-release/npm": "5.2.0",
     "@semantic-release/release-notes-generator": "7.3.0",
     "chai": "4.2.0",
@@ -54,7 +54,7 @@
     "nyc": "14.1.1",
     "nyc-config-common": "1.0.1",
     "prettier-standard": "15.0.1",
-    "semantic-release": "15.13.24"
+    "semantic-release": "15.13.27"
   },
   "eslintConfig": {
     "extends": "standard",
