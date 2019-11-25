@@ -1,6 +1,6 @@
 {
   "name": "codigo-postal",
-  "version": "2.0.7",
+  "version": "3.0.0",
   "description": "Get postal code from Correos de Chile",
   "main": "src",
   "types": "src/types.d.ts",

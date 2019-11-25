@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/lgaticaq/codigo-postal/compare/v2.0.7...v3.0.0) (2019-11-25)
+
+
+### Features
+
+* update scrapping method ([b248489](https://github.com/lgaticaq/codigo-postal/commit/b248489ecc260cdd41f4dfe0ebea09f82f97f4c5))
+
+
+### BREAKING CHANGES
+
+* Set min node version to v12
+
 ## [2.0.7](https://github.com/lgaticaq/codigo-postal/compare/v2.0.6...v2.0.7) (2019-10-08)
 
 
