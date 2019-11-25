@@ -1,21 +1,42 @@
-'use strict'
-
-const cheerio = require('cheerio')
 const https = require('https')
 const querystring = require('querystring')
 
+/**
+ * @typedef {import('./types').CodigoPostalData} CodigoPostalData
+ * @typedef {import('./types').CodigoPostalResult} CodigoPostalResult
+ * @typedef {import('https').RequestOptions} RequestOptions
+ */
+/**
+ * @param {CodigoPostalData} data -
+ * @returns {Promise<CodigoPostalResult>} -
+ * @example
+ * const { zip } = await getZip(data)
+ */
 const getZip = data => {
   return new Promise((resolve, reject) => {
     const qs = querystring.stringify({
-      calle: data.address,
-      numero: data.number,
-      comuna: data.commune
+      _cl_cch_codigopostal_portlet_CodigoPostalPortlet_INSTANCE_MloJQpiDsCw9_comuna:
+        data.commune,
+      _cl_cch_codigopostal_portlet_CodigoPostalPortlet_INSTANCE_MloJQpiDsCw9_calle:
+        data.address,
+      _cl_cch_codigopostal_portlet_CodigoPostalPortlet_INSTANCE_MloJQpiDsCw9_numero:
+        data.number
     })
+    /** @type {RequestOptions} */
     const options = {
-      hostname: 'codigopostal.correos.cl',
+      hostname: 'www.correos.cl',
       port: 443,
-      path: `/?${qs}`,
-      method: 'GET'
+      path:
+        '/web/guest/codigo-postal?p_p_id=cl_cch_codigopostal_portlet_CodigoPostalPortlet_INSTANCE_MloJQpiDsCw9&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_resource_id=COOKIES_RESOURCE_ACTION&p_p_cacheability=cacheLevelPage&_cl_cch_codigopostal_portlet_CodigoPostalPortlet_INSTANCE_MloJQpiDsCw9_cmd=CMD_ADD_COOKIE',
+      method: 'POST',
+      headers: {
+        'User-Agent':
+          'Mozilla/5.0 (X11; Linux x86_64; rv:71.0) Gecko/20100101 Firefox/71.0',
+        Accept: '*/*',
+        'Accept-Language': 'en-US,en;q=0.5',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      rejectUnauthorized: false
     }
     const req = https.request(options, res => {
       if (res.statusCode !== 200) {
@@ -28,25 +49,20 @@ const getZip = data => {
         })
         res.on('end', () => {
           try {
-            const $ = cheerio.load(rawData, { decodeEntities: false })
-            const zip = $('.tu_codigo')
-              .text()
-              .trim()
-            const address = $('.dato-info:nth-child(1)')
-              .text()
-              .trim()
-            const number = $('.dato-info:nth-child(3)')
-              .text()
-              .trim()
-            const commune = $('.dato-info:nth-child(5)')
-              .text()
-              .trim()
-            if (!zip) throw new Error('Not found')
+            const data = JSON.parse(rawData)
+            if (data.codigoEstadoRespuesta !== '1') {
+              throw new Error(
+                `Invalid response code: ${data.codigoEstadoRespuesta}`
+              )
+            }
+            if (data.error) {
+              throw new Error(`Response with error: ${data.error}`)
+            }
             resolve({
-              zip: parseInt(zip, 10),
-              address: address,
-              number: number,
-              commune: commune
+              zip: parseInt(data.direcciones[0].codPostal, 10),
+              address: data.direcciones[0].calle,
+              number: data.direcciones[0].numero,
+              commune: data.direcciones[0].comuna
             })
           } catch (err) {
             reject(err)
@@ -55,6 +71,7 @@ const getZip = data => {
       }
     })
     req.on('error', err => reject(err))
+    req.write(qs)
     req.end()
   })
 }

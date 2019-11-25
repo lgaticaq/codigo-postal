@@ -4,29 +4,26 @@ cache:
     - ~/.npm
     - .nyc_output
 node_js:
-  - "12.4.0"
+  - "12.13.1"
 notifications:
   email: false
 stages:
-  - lint
   - test
   - coverage
   - name: deploy
     if: branch = master
 jobs:
   include:
-    - stage: lint
+    - stage: test
       name: eslint
       script: npx eslint .
-    - stage: lint
+    - stage: test
       name: commitlint
       before_script:
         - npm i -g @commitlint/travis-cli
       script: commitlint-travis
     - stage: test
-      node_js:
-        - "10"
-        - "8"
+      name: test
       script: npm t
     - stage: coverage
       before_script:
