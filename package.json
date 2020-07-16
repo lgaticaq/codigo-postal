@@ -59,7 +59,7 @@
     "nyc-config-common": "1.0.1",
     "prettier-standard": "16.4.1",
     "semantic-release": "17.1.1",
-    "typescript": "3.9.6"
+    "typescript": "3.9.7"
   },
   "eslintConfig": {
     "extends": "@eclass"
